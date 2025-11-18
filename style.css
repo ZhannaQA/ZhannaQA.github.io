@@ -1,0 +1,406 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: background 0.3s ease;
+}
+
+body.dark-theme {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+}
+
+.business-card {
+    background: white;
+    border-radius: 20px;
+    padding: 50px 40px;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.dark-theme .business-card {
+    background: #2d3748;
+    color: #e2e8f0;
+}
+
+.avatar-container {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 25px;
+    position: relative;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.dark-theme .avatar {
+    border-color: #63b3ed;
+}
+
+.avatar-fallback {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #667eea;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+    border: 4px solid #667eea;
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.dark-theme .avatar-fallback {
+    background: #63b3ed;
+    border-color: #63b3ed;
+}
+
+.avatar-container:hover .avatar,
+.avatar-container:hover .avatar-fallback {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 12px;
+    font-size: 32px;
+    transition: color 0.3s ease;
+    font-weight: 600;
+}
+
+.dark-theme h1 {
+    color: #f7fafc;
+}
+
+.profession {
+    color: #667eea;
+    font-size: 22px;
+    margin-bottom: 35px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.dark-theme .profession {
+    color: #63b3ed;
+}
+
+.contacts {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 16px;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+}
+
+.dark-theme .contacts {
+    background: #4a5568;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 18px 0;
+    padding: 16px 20px;
+    background: white;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.dark-theme .contact-item {
+    background: #2d3748;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.contact-icon {
+    width: 26px;
+    height: 26px;
+    margin-right: 14px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.contact-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 17px;
+    transition: color 0.3s ease;
+    flex: 1;
+    text-align: left;
+    font-weight: 500;
+}
+
+.dark-theme .contact-link {
+    color: #e2e8f0;
+}
+
+.contact-link:hover {
+    color: #667eea;
+}
+
+.dark-theme .contact-link:hover {
+    color: #63b3ed;
+}
+
+/* ИСПРАВЛЕНИЕ: Цвет текста почты в светлой теме */
+.contact-text {
+    color: #333; /* Темный цвет для светлой темы */
+    font-size: 17px;
+    flex: 1;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.dark-theme .contact-text {
+    color: #e2e8f0; /* Светлый цвет для темной темы */
+}
+
+.contact-text:hover {
+    color: #667eea;
+}
+
+.dark-theme .contact-text:hover {
+    color: #63b3ed;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    margin-left: 12px;
+}
+
+.copy-btn:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.08);
+    transform: scale(1.1);
+}
+
+.dark-theme .copy-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle {
+    margin-top: 28px;
+    padding: 14px 28px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.theme-toggle:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.dark-theme .theme-toggle {
+    background: #4a5568;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .theme-toggle:hover {
+    background: #2d3748;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.notification {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background: #48bb78;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateX(150%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    font-weight: 500;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* Адаптация для планшетов */
+@media (max-width: 768px) {
+    .business-card {
+        padding: 40px 30px;
+        max-width: 450px;
+    }
+    
+    .avatar-container {
+        width: 140px;
+        height: 140px;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+    
+    .profession {
+        font-size: 20px;
+    }
+    
+    .contacts {
+        padding: 25px;
+    }
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+    
+    .business-card {
+        padding: 35px 25px;
+        border-radius: 18px;
+    }
+    
+    .avatar-container {
+        width: 130px;
+        height: 130px;
+        margin-bottom: 20px;
+    }
+    
+    .avatar-fallback {
+        font-size: 42px;
+    }
+    
+    h1 {
+        font-size: 26px;
+    }
+    
+    .profession {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+    
+    .contacts {
+        padding: 20px;
+        border-radius: 14px;
+        margin-top: 20px;
+    }
+    
+    .contact-item {
+        padding: 14px 16px;
+        margin: 14px 0;
+    }
+    
+    .contact-link, .contact-text {
+        font-size: 16px;
+    }
+    
+    .contact-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+    }
+    
+    .copy-btn {
+        padding: 7px;
+        margin-left: 10px;
+    }
+    
+    .theme-toggle {
+        margin-top: 24px;
+        padding: 13px 24px;
+        font-size: 15px;
+    }
+    
+    .notification {
+        top: 15px;
+        right: 15px;
+        left: 15px;
+        text-align: center;
+        padding: 14px 20px;
+    }
+}
+
+/* Адаптация для очень маленьких экранов */
+@media (max-width: 360px) {
+    .business-card {
+        padding: 30px 20px;
+    }
+    
+    .avatar-container {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .avatar-fallback {
+        font-size: 38px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .profession {
+        font-size: 17px;
+    }
+    
+    .contact-link, .contact-text {
+        font-size: 15px;
+    }
+    
+    .contact-icon {
+        width: 22px;
+        height: 22px;
+    }
+}
